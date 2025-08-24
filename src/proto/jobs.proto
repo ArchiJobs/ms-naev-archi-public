@@ -1,0 +1,97 @@
+syntax = "proto3";
+
+package jobs;
+
+service JobsService {
+	rpc SearchJobs (JobSearchRequest) returns (JobListResponse);
+	rpc GetJobDetail (JobDetailRequest) returns (JobDetailResponse);
+	rpc GetCategories (Empty) returns (CategoryListResponse);
+	rpc GetLocations (Empty) returns (LocationListResponse);
+	rpc GetCompanies (Empty) returns (CompanyListResponse);
+	rpc GetJobFilters (Empty) returns (JobFiltersResponse);
+}
+
+message Empty {}
+
+message JobSearchRequest {
+	string query = 1;
+	string location = 2;
+	string category = 3;
+	string salaryRange = 4;
+	int32 limit = 5;
+	int32 offset = 6;
+	int32 page = 7;
+}
+
+message JobDetailRequest {
+	int32 id = 1;
+}
+
+message JobDetailResponse {
+	JobDetail job = 1;
+}
+
+message JobListResponse {
+	repeated JobDetail jobs = 1;
+}
+
+message CategoryListResponse {
+	repeated JobCategory categories = 1;
+}
+
+message LocationListResponse {
+	repeated JobLocation locations = 1;
+}
+
+message CompanyListResponse {
+	repeated JobCompany companies = 1;
+}
+
+message JobFiltersResponse {
+	JobFilters filters = 1;
+}
+
+message JobFilters {
+	repeated JobCategory categorias = 1;
+	repeated string paises = 2;
+	repeated string regiones = 3;
+	repeated string nivelesExperiencia = 4;
+	repeated string modalidades = 5;
+	repeated string tiposContrato = 6;
+}
+
+message JobDetail {
+	int32 id = 1;
+	int32 empresaId = 2;
+	int32 categoriaId = 3;
+	int32 ubicacionId = 4;
+	string titulo = 5;
+	string descripcion = 6;
+	string modalidad = 7;
+	string tipoContrato = 8;
+	int32 salarioMin = 9;
+	int32 salarioMax = 10;
+	string fechaPublicacion = 11;
+	bool activo = 12;
+}
+
+message JobCategory {
+	int32 id = 1;
+	string nombre = 2;
+	string descripcion = 3;
+}
+
+message JobLocation {
+	int32 id = 1;
+	string comuna = 2;
+	string region = 3;
+	string pais = 4;
+}
+
+message JobCompany {
+	int32 id = 1;
+	string nombre = 2;
+	string descripcion = 3;
+	string website = 4;
+	string logoUrl = 5;
+}

@@ -1,0 +1,111 @@
+{
+  "info": {
+    "name": "JobsService gRPC Example",
+    "description": "Colección de ejemplos para JobsService gRPC",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "SearchJobs",
+      "request": {
+        "method": "GRPC",
+        "url": {
+          "raw": "grpc://localhost:9091/JobsService/SearchJobs",
+          "protocol": "grpc",
+          "host": ["localhost"],
+          "port": "9091",
+          "path": ["JobsService", "SearchJobs"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"arquitecto\",\n  \"location\": \"1\",\n  \"category\": \"2\",\n  \"salaryRange\": \"1500000-2500000\",\n  \"limit\": 5,\n  \"offset\": 0,\n  \"page\": 1\n}"
+        }
+      }
+    },
+    {
+      "name": "GetJobDetail",
+      "request": {
+        "method": "GRPC",
+        "url": {
+          "raw": "grpc://localhost:9091/JobsService/GetJobDetail",
+          "protocol": "grpc",
+          "host": ["localhost"],
+          "port": "9091",
+          "path": ["JobsService", "GetJobDetail"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 1\n}"
+        }
+      }
+    },
+    {
+      "name": "GetCategories",
+      "request": {
+        "method": "GRPC",
+        "url": {
+          "raw": "grpc://localhost:9091/JobsService/GetCategories",
+          "protocol": "grpc",
+          "host": ["localhost"],
+          "port": "9091",
+          "path": ["JobsService", "GetCategories"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{}"
+        }
+      }
+    },
+    {
+      "name": "GetLocations",
+      "request": {
+        "method": "GRPC",
+        "url": {
+          "raw": "grpc://localhost:9091/JobsService/GetLocations",
+          "protocol": "grpc",
+          "host": ["localhost"],
+          "port": "9091",
+          "path": ["JobsService", "GetLocations"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{}"
+        }
+      }
+    },
+    {
+      "name": "GetCompanies",
+      "request": {
+        "method": "GRPC",
+        "url": {
+          "raw": "grpc://localhost:9091/JobsService/GetCompanies",
+          "protocol": "grpc",
+          "host": ["localhost"],
+          "port": "9091",
+          "path": ["JobsService", "GetCompanies"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{}"
+        }
+      }
+    },
+    {
+      "name": "GetJobFilters",
+      "request": {
+        "method": "GRPC",
+        "url": {
+          "raw": "grpc://localhost:9091/JobsService/GetJobFilters",
+          "protocol": "grpc",
+          "host": ["localhost"],
+          "port": "9091",
+          "path": ["JobsService", "GetJobFilters"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{}"
+        }
+      }
+    }
+  ]
+}
